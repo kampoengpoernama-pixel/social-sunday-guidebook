@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampoeng English Poernama Social Sunday Program Guidebook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rubik:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc;
+        }
+        .font-rubik {
+            font-family: 'Rubik', sans-serif;
+        }
+        .sidebar-link.active {
+            background-color: #dbeafe; /* Light blue background */
+            color: #b91c1c; /* Dark red text */
+            font-weight: 600;
+        }
+        /* Mobile-first sidebar styling */
+        #sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #sidebar.open {
+            transform: translateX(0);
+        }
+        @media (min-width: 768px) {
+            #sidebar {
+                transform: translateX(0);
+                flex-shrink: 0;
+            }
+            #main-content {
+                margin-left: 16rem; /* Match sidebar width */
+            }
+            #sidebar.collapsed {
+                width: 5rem;
+            }
+            #main-content.collapsed-margin {
+                margin-left: 5rem;
+            }
+            .collapsed-text {
+                display: none;
+            }
+            .collapsed-icon {
+                display: inline-block;
+            }
+        }
+        .collapsed-text {
+            display: inline;
+        }
+        .collapsed-icon {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold font-rubik"><span class="text-blue-600">KEP</span> <span class="text-red-600">Social Sunday</span></span>
+            </a>
+            <button id="menu-button" class="md:hidden text-gray-600 hover:text-red-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="flex relative">
+        <!-- Backdrop for Mobile Sidebar -->
+        <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="w-64 fixed top-0 left-0 h-screen bg-white shadow-lg p-6 overflow-y-auto z-50 transition-all duration-300 ease-in-out md:static md:h-auto md:shadow-lg md:top-auto">
+            
+            <!-- Sidebar Header for Mobile & Desktop -->
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold font-rubik text-red-600 collapsed-text">Guidebook</span>
+                    <span class="text-2xl font-bold font-rubik text-red-600 collapsed-icon hidden">KEP</span>
+                </div>
+                <button id="close-button" class="md:hidden text-gray-500 hover:text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                 <button id="collapse-button" class="hidden md:block text-gray-500 hover:text-gray-800 focus:outline-none transition-transform duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+            </div>
+            
+            <nav id="sidebar-nav">
+                <h3 class="text-xs uppercase text-gray-400 font-semibold mb-2 collapsed-text">Sections</h3>
+                <ul class="space-y-2">
+                    <li><a href="#intro" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Introduction</span><span class="collapsed-icon hidden">⭐</span></a></li>
+                </ul>
+
+                <div class="mt-6">
+                    <h3 class="text-xs uppercase text-gray-400 font-semibold mb-2 collapsed-text">Phase 1</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#week1" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 1: Introduction</span><span class="collapsed-icon hidden">1️⃣</span></a></li>
+                        <li><a href="#week2" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 2: My Family</span><span class="collapsed-icon hidden">2️⃣</span></a></li>
+                        <li><a href="#week3" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 3: My Things</span><span class="collapsed-icon hidden">3️⃣</span></a></li>
+                        <li><a href="#week4" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 4: My Home</span><span class="collapsed-icon hidden">4️⃣</span></a></li>
+                        <li><a href="#week5" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 5: My Body</span><span class="collapsed-icon hidden">5️⃣</span></a></li>
+                        <li><a href="#week6" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 6: My Feelings</span><span class="collapsed-icon hidden">6️⃣</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="text-xs uppercase text-gray-400 font-semibold mb-2 collapsed-text">Phase 2</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#week7" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 7: Animals</span><span class="collapsed-icon hidden">7️⃣</span></a></li>
+                        <li><a href="#week8" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 8: The Zoo</span><span class="collapsed-icon hidden">8️⃣</span></a></li>
+                        <li><a href="#week9" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 9: Colors & Shapes</span><span class="collapsed-icon hidden">9️⃣</span></a></li>
+                        <li><a href="#week10" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 10: Numbers</span><span class="collapsed-icon hidden">🔟</span></a></li>
+                        <li><a href="#week11" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 11: Daily Routine</span><span class="collapsed-icon hidden">🗓️</span></a></li>
+                        <li><a href="#week12" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 12: School Life</span><span class="collapsed-icon hidden">🏫</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="text-xs uppercase text-gray-400 font-semibold mb-2 collapsed-text">Phase 3</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#week13" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 13: Review 1</span><span class="collapsed-icon hidden">📝</span></a></li>
+                        <li><a href="#week14" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 14: Storytelling</span><span class="collapsed-icon hidden">📖</span></a></li>
+                        <li><a href="#week15" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 15: Review 2</span><span class="collapsed-icon hidden">📋</span></a></li>
+                        <li><a href="#week16" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 16: Role-Play</span><span class="collapsed-icon hidden">🎭</span></a></li>
+                        <li><a href="#week17" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 17: Project Week</span><span class="collapsed-icon hidden">🎨</span></a></li>
+                        <li><a href="#week18" class="sidebar-link block py-2 px-3 rounded-md hover:bg-blue-50 transition-colors"><span class="collapsed-text">Week 18: Celebration</span><span class="collapsed-icon hidden">🎉</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="main-content" class="p-4 md:p-12 w-full transition-all duration-300 ease-in-out">
+            
+            <section id="intro" class="mb-12">
+                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg">
+                    <h2 class="text-4xl font-bold font-rubik mb-4"><span class="text-blue-600">Kampoeng English Poernama</span> <span class="text-red-600">Social Sunday</span> Program Guidebook</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">Social Sunday has been providing accessible English education to children in Pontianak since 2014. Our mission is to make language learning fun and engaging, empowering kids with essential communication skills in a supportive environment. This guidebook is designed to help you, our dedicated facilitators, create an incredible experience for every student.</p>
+                    <div class="bg-blue-50 border-l-4 border-blue-300 p-6 rounded-lg mt-8">
+                        <h3 class="text-2xl font-bold font-rubik text-blue-800 mb-4">Tips for a Great Class</h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-start"><span class="mr-3 text-blue-600 font-bold text-xl">✨</span> <span><strong>Be Energetic and Positive:</strong> Your enthusiasm makes a huge difference. A bright smile and an encouraging tone can make all the difference.</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-blue-600 font-bold text-xl">🗣️</span> <span><strong>Use Lots of Gestures:</strong> Act out words and concepts to help students understand, especially in the beginning.</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-blue-600 font-bold text-xl">💧</span> <span><strong>Keep it Simple:</strong> Use short, clear sentences. It’s better to say "I am happy" than "I'm feeling quite cheerful today."</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-blue-600 font-bold text-xl">🎉</span> <span><strong>Praise, Praise, Praise:</strong> Celebrate every effort, no matter how small. Positive reinforcement builds confidence and encourages participation.</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-blue-600 font-bold text-xl">🎲</span> <span><strong>Play is Learning:</strong> The games and activities are the core of the lesson. Focus on participation and fun, not on perfect grammar.</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-blue-600 font-bold text-xl">❤️</span> <span><strong>Be Patient:</strong> Language acquisition takes time. Some students may be shy at first. Create a safe, low-pressure environment for them to grow.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="mb-12">
+                <h2 class="text-4xl font-bold font-rubik text-gray-700 border-b-4 border-red-400 pb-2 mb-8">Phase 1: Getting to Know Me and My World</h2>
+                <p class="text-gray-600 mb-8">This phase builds foundational skills by starting with topics directly relevant to the students' lives. The goal is to make learning personal and build a comfortable base for language acquisition.</p>
+                
+                <section id="week1" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 1: Introduction - "Hello, My Name Is..."</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to introduce themselves and greet others using simple phrases.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Hello, Goodbye, Name, I am, You are, What, is, your.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Name Ball:</strong> Sit in a circle. The facilitator says, "Hello, my name is [Name]" and gently rolls a ball to a student. The student who receives it introduces themselves and rolls it to another student.</li>
+                            <li><strong>Hello, Goodbye Wave:</strong> Play some music. When the music plays, everyone dances. When it stops, the facilitator shouts "Hello!" and everyone waves and says "Hello!" to a partner. Do the same with "Goodbye!".</li>
+                            <li><strong>Puppet Introductions:</strong> Use a simple hand puppet (or a doll/toy) to model the introduction. The puppet can ask students, "What is your name?" and they can reply "I am [Name]."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a picture of yourself and a family member, then write their name underneath.</li>
+                            <li>Write the word "Hello" or "Goodbye" on a piece of paper and decorate it.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">For students who are very shy, try using a puppet to ask them their name. It's less intimidating than a direct question from a person.</p>
+                    </div>
+                </section>
+
+                <section id="week2" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 2: My Family</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to identify and name core family members.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Family, Mother, Father, Sister, Brother, Baby, Me.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Family Finger Song:</strong> Teach the "Finger Family" song (Daddy finger, daddy finger, where are you?). Use finger puppets or simple drawings on fingers.</li>
+                            <li><strong>Family Flashcard Match:</strong> Show flashcards of family members. Say the word ("Mother") and have students point to the correct card. Then, give students cards and have them hold up the correct one when you call it out.</li>
+                            <li><strong>Draw Your Family:</strong> Give students paper and crayons. Ask them to draw their family. They can then point to each person and say who they are ("This is my father," etc.).</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>On a piece of paper, draw a portrait of your family and label each person with a word like "Mother," "Father," or "Brother."</li>
+                            <li>Write a sentence about one family member, such as "My father is happy."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">Show a picture of your own family to get the conversation started! This can help students feel more comfortable sharing about their own families.</p>
+                    </div>
+                </section>
+
+                <section id="week3" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 3: My Favorite Things</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to name a few common objects and express preference using "I like."</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> I like, Ball, Book, Car, Doll, Food, Toy, Color.</p>
+                     <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Show and Tell (Simple):</strong> Facilitator brings a bag with a few objects (a ball, a book, a toy car). Pull one out and say "This is a ball. I like the ball." Encourage students to repeat. Pass the objects around for them to touch.</li>
+                            <li><strong>What's Missing?:</strong> Place 3-4 objects or flashcards on the floor. Give students a moment to look. Ask them to close their eyes, then remove one object. Ask, "What's missing?" They can answer by pointing or saying the word.</li>
+                            <li><strong>Picture Choice:</strong> Draw simple pictures of the vocabulary on the board (a ball, a book, an apple for food). Point to one and say "I like the book." Ask a student "What do you like?" and have them point to a picture. Help them say, "I like the [item]."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a picture of a favorite toy and write a sentence about it, like "I like my toy."</li>
+                            <li>Draw a picture of a favorite food and label it.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">Encourage students to use their local language if they can't remember the English word. Translate it for them and then have them practice the English word. It's about bridging the gap.</p>
+                    </div>
+                </section>
+
+                <section id="week4" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 4: My Home</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to identify and name four basic rooms in a house.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Home, House, Room, Bedroom, Bathroom, Kitchen, Living room.</p>
+                     <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Room Corners:</strong> Label four corners of the classroom as "Bedroom," "Bathroom," "Kitchen," and "Living Room" using simple drawings. Call out a room name, and have students walk (not run!) to that corner.</li>
+                            <li><strong>Action Association:</strong> Teach simple actions for each room: pretend to sleep for bedroom, wash hands for bathroom, stir a pot for kitchen, and watch TV for living room. Call out a room, and have students do the action.</li>
+                            <li><strong>Draw Your Dream Room:</strong> Give students paper to draw their favorite room in their house. They can then show their drawing and try to name the room.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a picture of a room in your home and label it with the correct English word (e.g., "Kitchen," "Bedroom").</li>
+                            <li>Write a sentence about your home, such as "My home is big."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">You can add a fun, collaborative element by asking students to name one object they would find in each room. This helps expand their vocabulary organically.</p>
+                    </div>
+                </section>
+
+                <section id="week5" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 5: My Body</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to identify and point to main parts of their body.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Head, Shoulders, Knees, Toes, Eyes, Ears, Mouth, Nose.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Head, Shoulders, Knees & Toes:</strong> Sing the song slowly at first, pointing to each body part. Speed up as students get more confident. It's a classic for a reason!</li>
+                            <li><strong>Simon Says:</strong> Play a simple version of "Simon Says." Give commands like "Simon says touch your nose," or "Simon says touch your ears." Start slowly.</li>
+                            <li><strong>Monster Drawing:</strong> Draw a big, simple monster body on the whiteboard. Ask students, "Where are the eyes?" and have a volunteer come up and draw two eyes. Continue for nose, mouth, etc.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a self-portrait and label at least three body parts with their English names (e.g., "Eyes," "Nose," "Mouth").</li>
+                            <li>Write a sentence like "I have two hands" or "My eyes are brown."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">Use a mirror in the classroom if you have one. It can be a great tool for students to see and point to their own body parts as they learn the words.</p>
+                    </div>
+                </section>
+
+                <section id="week6" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 6: My Feelings</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to identify and express basic feelings.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Happy, Sad, Angry, Sleepy, I feel.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Feeling Faces:</strong> Use flashcards with simple drawings of happy, sad, angry, and sleepy faces. Show a card and say "I feel happy," while making the face. Have students mimic the face and the phrase.</li>
+                            <li><strong>Feelings Charades:</strong> The facilitator acts out a feeling (e.g., yawning for sleepy, smiling big for happy) and students guess the feeling. More advanced students can try acting it out too.</li>
+                            <li><strong>How Do You Feel?:</strong> Sit in a circle. Ask each student, "How do you feel?" They can answer by pointing to a feeling flashcard or by saying, "I feel happy."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw four different faces showing the feelings we learned: happy, sad, angry, and sleepy. Label each one.</li>
+                            <li>Write a sentence about a time you felt one of those feelings. For example, "I feel happy when I play."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">It's important to validate all feelings. Make sure students know it's okay to feel "sad" or "angry" sometimes. This builds trust and emotional intelligence.</p>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="mb-12">
+                <h2 class="text-4xl font-bold font-rubik text-gray-700 border-b-4 border-red-400 pb-2 mb-8">Phase 2: Exploring the World Around Me</h2>
+                <p class="text-gray-600 mb-8">This phase expands the curriculum's scope to the world around the students. The topics are designed to gradually introduce more complex vocabulary and sentence structures, growing their confidence in new contexts.</p>
+                
+                <section id="week7" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 7: Animals</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to identify and name common domestic and farm animals.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Cat, Dog, Bird, Fish, Cow, Chicken, Duck.</p>
+                     <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Animal Sounds:</strong> Show a picture or flashcard of an animal (e.g., a cat) and make its sound ("Meow"). Have students repeat the sound and the name ("Cat").</li>
+                            <li><strong>What Animal Am I?:</strong> Act like an animal (e.g., walk on all fours and bark like a dog) and have students guess the animal. This requires no materials and is very engaging.</li>
+                            <li><strong>Picture Match:</strong> Place animal flashcards on the floor. Make an animal sound, and have a student find and pick up the correct picture.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a picture of your favorite animal from today's lesson. Write a sentence about it, for example, "The dog is a good friend."</li>
+                            <li>Write the name of a pet or an animal you see often.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">Encourage students to share stories about their own pets. This builds a personal connection to the vocabulary and helps them practice speaking in full sentences.</p>
+                    </div>
+                </section>
+
+                <section id="week8" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 8: The Zoo</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to name common zoo animals and understand the concept of a "zoo."</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Zoo, Monkey, Lion, Tiger, Elephant, Snake, Giraffe.</p>
+                     <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Zoo Animal Charades:</strong> Similar to last week, but with zoo animals. Mime peeling a banana for a monkey, having a long trunk for an elephant, or roaring for a lion.</li>
+                            <li><strong>Tall and Small:</strong> Teach concepts of size. "The giraffe is tall" (stretch up high). "The snake is long" (stretch arms wide). "The monkey is small" (crouch down).</li>
+                            <li><strong>Whiteboard Zoo:</strong> Draw a simple zoo enclosure on the whiteboard. Ask students, "What animal is in the zoo?" and have them choose a flashcard to stick on the board. Name each animal as it's added.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a picture of a tall giraffe and a small monkey. Label both animals.</li>
+                            <li>Write the phrase "I see a..." and complete it with the name of a zoo animal.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">You can add in a sound-based guessing game. Play a quick animal sound from a phone or tablet and have students guess the animal. They love this!</p>
+                    </div>
+                </section>
+
+                <section id="week9" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 9: Colors & Shapes</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to identify and name primary colors and basic shapes.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Red, Blue, Yellow, Green, Circle, Square, Triangle, Star.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Color Hunt:</strong> Call out a color, for example, "Red!" Students then have to find something red in the room and point to it.</li>
+                            <li><strong>Shape Drawing in the Air:</strong> Show a flashcard of a shape (e.g., a circle). Have everyone use their finger to draw the shape in the air while saying "Circle."</li>
+                            <li><strong>Sorting Game:</strong> Have a pile of colored paper cut into different shapes. Ask students to sort them, e.g., "Find all the red squares," or "Find all the blue circles."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a picture using only the colors and shapes we learned. Label at least two of the shapes or colors you used.</li>
+                            <li>Write a sentence that uses a color word, such as "The ball is red."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">For the sorting game, try to have a variety of objects in different colors and shapes, not just paper cutouts. This makes it more tactile and fun for the kids.</p>
+                    </div>
+                </section>
+                 
+                <section id="week10" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 10: Numbers</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to recognize and count from 1 to 10.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Counting Fingers:</strong> A simple classic. Count from one to ten on your fingers, having students follow along. Then, hold up a number of fingers and have them shout out the number.</li>
+                            <li><strong>Number Hop:</strong> Write numbers 1-10 on pieces of paper and place them on the floor. Call out a number and have a student hop to it.</li>
+                            <li><strong>"How Many?" Game:</strong> Hold up a few objects (e.g., 3 crayons). Ask, "How many?" and help students count them: "One, two, three. Three crayons!"</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a picture of a group of objects, like five stars or three apples, and write the number next to them.</li>
+                            <li>Write the numbers 1 through 10 on a piece of paper, practicing your handwriting.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">Use a counting song to make learning numbers more fun and memorable. Simple tunes help them remember the sequence easily.</p>
+                    </div>
+                </section>
+                
+                <section id="week11" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 11: Daily Routine</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to identify and describe simple daily actions.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Wake up, Eat, Drink, Play, Sleep, Morning, Night.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Routine Mime:</strong> Mime actions from a daily routine: stretch for "wake up," pretend to eat for "eat," etc. Have students guess the action and say the word.</li>
+                            <li><strong>Morning & Night Sort:</strong> Have pictures of activities (eating breakfast, playing, sleeping). Draw a sun on one side of the board and a moon on the other. Have students place the pictures under "morning" (sun) or "night" (moon).</li>
+                            <li><strong>Story Chain:</strong> Start a simple story: "In the morning, I wake up." The next student adds an action: "I eat." Continue around the circle.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a timeline of your day, showing three pictures of your routine with a simple word or phrase underneath (e.g., "Wake up," "Eat," "Play").</li>
+                            <li>Write a sentence about what you do in the morning or at night.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">Use this opportunity to talk about healthy habits. You can model positive behaviors like "I eat healthy food" or "I go to sleep early."</p>
+                    </div>
+                </section>
+                
+                <section id="week12" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 12: School Life</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> Students will be able to identify common classroom objects and actions.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> School, Teacher, Student, Book, Whiteboard, Sit down, Stand up, Listen.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Classroom Simon Says:</strong> Play "Simon Says" with classroom commands: "Simon says stand up," "Simon says sit down," "Simon says point to the whiteboard," "Simon says open your book." This is perfect for a floor-based setting.</li>
+                            <li><strong>Teacher, Teacher:</strong> Let a student be the "teacher" for one minute. They can give simple commands like "Sit down" or "Listen," and the other students follow.</li>
+                            <li><strong>Object Hunt (Stationary):</strong> From their seated spot on the floor, have students point to objects as you call them out. "Where is the book?" "Where is the whiteboard?"</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a picture of your classroom and label at least two things in it.</li>
+                            <li>Write a sentence about what you do at school, like "I listen to my teacher."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">Use a lot of repetition and praise with the "Teacher, Teacher" game. It builds a student's confidence in taking the lead and helps them learn the commands.</p>
+                    </div>
+                </section>
+            </div>
+
+            <div>
+                <h2 class="text-4xl font-bold font-rubik text-gray-700 border-b-4 border-red-400 pb-2 mb-8">Phase 3: Application and Celebration</h2>
+                 <p class="text-gray-600 mb-8">This final phase is for applying all the skills learned. It's dedicated to using the accumulated knowledge through highly interactive activities that culminate in a final project, celebrating their progress and solidifying their learning.</p>
+                
+                <section id="week13" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 13: Review & Games 1</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> To review and actively use vocabulary from Phase 1 (Me, Family, Home, Body, Feelings).</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Review of words from Weeks 1-6.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Flashcard Race:</strong> Put flashcards from Phase 1 at one end of the room. Divide students into two teams. Call out a word (e.g., "Father!"), and the first student from each team walks quickly to find the card. First one to bring it back gets a point.</li>
+                            <li><strong>Feelings Charades:</strong> Students take turns acting out a feeling (happy, sad, angry, sleepy) and the others guess.</li>
+                            <li><strong>"Simon Says" Body Parts:</strong> A fast-paced game of Simon Says using all the body parts learned in Week 5.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a comic strip showing a character with different feelings in each panel. Write a simple sentence for each one, like "I feel happy."</li>
+                            <li>Write a short paragraph about your family or your home.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">Keep this session moving quickly. The goal is rapid-fire review to build fluency and recall. Don't worry about perfect pronunciation in this session, focus on engagement.</p>
+                    </div>
+                </section>
+                
+                <section id="week14" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 14: Storytelling</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> To understand and participate in a simple, repetitive story.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Based on a simple story like "The Very Hungry Caterpillar" (Caterpillar, eat, apple, leaf, butterfly) or a story you create using known vocabulary.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Interactive Story Reading:</strong> Read a very simple picture book. Emphasize keywords with actions and repetition. For example, every time you say "caterpillar," they wiggle their fingers. Every time you say "eat," they pretend to eat.</li>
+                            <li><strong>Story Puppets:</strong> Use simple paper cutouts of the characters. As you tell the story, students can hold up the correct character puppet when their name is mentioned.</li>
+                            <li><strong>Re-tell the Story with Pictures:</strong> After reading, show the pictures out of order and ask students "What happened first?" Help them put the story back in order.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Draw a picture from the story and write a few sentences describing what is happening in the picture.</li>
+                            <li>Create a simple new character for the story and write one sentence about them.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">The goal of this week is comprehension, not perfect speaking. Focus on whether the students understand the story and can recall key details, even if they use a mix of English and their native language.</p>
+                    </div>
+                </section>
+
+                <section id="week15" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 15: Review & Games 2</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> To review and actively use vocabulary from Phase 2 (Animals, Colors, Numbers, Routines).</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Review of words from Weeks 7-12.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Animal Sound Quiz:</strong> Make an animal sound, and have students shout out the animal's name.</li>
+                            <li><strong>Number & Color Commands:</strong> Give two-part commands, like "Find something BLUE" or "Show me THREE fingers."</li>
+                            <li><strong>Pictionary:</strong> Draw a simple object from Phase 2 vocabulary on the whiteboard (e.g., a circle, a cat, a sun for 'morning'). Students guess what it is.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Write down the names of three animals you learned. Draw a picture of each animal.</li>
+                            <li>Find different objects in your home and write down their color and number, for example: "Three red apples."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">Pictionary is a great way to engage both visual learners and competitive students. Encourage them to get creative with their drawings, and remind them that it's okay if their drawing isn't perfect.</p>
+                    </div>
+                </section>
+
+                <section id="week16" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 16: Role-Play</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> To use learned vocabulary in simple, structured conversations.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Essential Vocabulary:</strong> Combining phrases like "Hello," "My name is," "I like," "I have," "Goodbye."</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Interactive Games & Activities:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>At the Store:</strong> Set up a simple "store" with a few objects (book, ball, apple). One student is the shopkeeper, one is the customer. Model the dialogue: "Hello." "Hello." "I like the apple." "Here you are." "Thank you." "Goodbye."</li>
+                            <li><strong>Meeting a Friend:</strong> Pair up students to practice a simple greeting dialogue. "Hello." "Hello." "What is your name?" "My name is [Name]." "I am [Name]." "Goodbye."</li>
+                            <li><strong>My Favorite Toy:</strong> Students can pick a toy/flashcard and introduce it. "This is my car. I like my car."</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-gray-600">
+                            <li>Write a short conversation you could have with a friend, using at least three English phrases we learned today.</li>
+                            <li>Draw a picture of two friends talking and write down what they might say to each other.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">For the role-play, try to use real objects if you have them. A real ball is more fun than a picture of a ball, and a toy car is more fun than a flashcard of one!</p>
+                    </div>
+                </section>
+                
+                <section id="week17" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 17: Project Week</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> To create a simple project that showcases what they have learned.</p>
+                    <p class="mb-4 text-sm text-gray-500"><strong>Project Idea:</strong> Create an "All About Me" Mini-Book.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Activity:</h4>
+                        <p class="text-gray-600">Give each student a few pieces of paper folded in half to make a booklet. Each page has a theme:</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-600">
+                            <li><strong>Page 1 (Cover):</strong> My Book by [Student's Name]. They can decorate it.</li>
+                            <li><strong>Page 2: My Family.</strong> They draw their family and try to label them.</li>
+                            <li><strong>Page 3: My Favorite Things.</strong> They draw their favorite toy, food, and color.</li>
+                            <li><strong>Page 4: My Favorite Animal.</strong> They draw their favorite animal from the lessons.</li>
+                        </ul>
+                        <p class="mt-2 text-gray-600">Facilitators walk around to help students with spelling and ideas.</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <p class="text-gray-600">Finish decorating your mini-book and write one sentence on each page about the drawing.</p>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">This is a great opportunity to connect with the students on a personal level. Ask them questions about their drawings and help them with the English words for things that aren't in the vocabulary list yet. It shows them that their ideas matter!</p>
+                    </div>
+                </section>
+                
+                <section id="week18" class="lesson-card bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold font-rubik text-red-600 mb-4">Week 18: Project Celebration</h3>
+                    <p class="mb-2 text-sm text-gray-500"><strong>Core Objectives:</strong> To present their project to the class and celebrate their progress.</p>
+                    <div class="bg-gray-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Activity: Show and Tell Celebration</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-600">
+                            <li><strong>Presentation Time:</strong> Each student comes to the front and presents their "All About Me" book. They can say as little or as much as they are comfortable with, e.g., "Hello. This is my book. This is my family. This is my dog. I like blue. Thank you."</li>
+                            <li><strong>Class Applause:</strong> After each presentation, the entire class gives a huge round of applause. This is all about building confidence.</li>
+                            <li><strong>Certificate Ceremony & Party:</strong> After presentations, hand out simple "Certificate of Completion" papers to each student. Celebrate with a small snack or drink if possible. Play their favorite game from the past 18 weeks one last time.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-gray-700">Homework Assignment:</h4>
+                        <p class="text-gray-600">Show your certificate to your family and tell them one thing you learned in English this semester.</p>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-300 p-4 rounded-lg mt-4">
+                        <h4 class="font-semibold text-lg mb-2 text-red-700">Facilitator's Note:</h4>
+                        <p class="text-red-800">Make this day a true celebration of their effort. The focus is on fun and positive reinforcement. Make sure every single student feels seen and appreciated for their hard work. 
+</p>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            const menuButton = document.getElementById('menu-button');
+            const closeButton = document.getElementById('close-button');
+            const backdrop = document.getElementById('backdrop');
+            const navLinks = document.querySelectorAll('#sidebar-nav a');
+            const sections = document.querySelectorAll('section[id]');
+            const collapseButton = document.getElementById('collapse-button');
+            const collapsedTextElements = document.querySelectorAll('.collapsed-text');
+            const collapsedIconElements = document.querySelectorAll('.collapsed-icon');
+
+            function toggleMobileSidebar() {
+                sidebar.classList.toggle('open');
+                backdrop.classList.toggle('hidden');
+            }
+
+            function toggleDesktopSidebar() {
+                sidebar.classList.toggle('collapsed');
+                mainContent.classList.toggle('collapsed-margin');
+                
+                collapseButton.querySelector('svg').classList.toggle('rotate-180');
+                
+                collapsedTextElements.forEach(el => el.classList.toggle('hidden'));
+                collapsedIconElements.forEach(el => el.classList.toggle('hidden'));
+            }
+
+            // Event listeners
+            menuButton.addEventListener('click', toggleMobileSidebar);
+            closeButton.addEventListener('click', toggleMobileSidebar);
+            backdrop.addEventListener('click', toggleMobileSidebar);
+            collapseButton.addEventListener('click', toggleDesktopSidebar);
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 768) {
+                        toggleMobileSidebar();
+                    }
+                });
+            });
+
+            // Intersection Observer for active link highlighting
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-30% 0px -70% 0px" });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
